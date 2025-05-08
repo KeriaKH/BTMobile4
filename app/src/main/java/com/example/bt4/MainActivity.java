@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         password=findViewById(R.id.password);
         login=findViewById(R.id.button);
         userList = new ArrayList<>();
-        userList.add(new User("user1", "pass1"));
+        userList.add(new User("1", "1"));
         userList.add(new User("user2", "pass2"));
         classRepo=new ClassRepo(this);
         List<Class> classList = classRepo.loadAll();
@@ -97,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                     startActivity(intent);
+                    user.setText("");
+                    password.setText("");
                 } else {
                     Toast.makeText(getApplicationContext(), "Login failed", Toast.LENGTH_LONG).show();
                 }

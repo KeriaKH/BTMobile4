@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -50,7 +51,8 @@ public class StudentRepo extends SQLiteOpenHelper {
         values.put(COLUMN_DATE, student.date);
         values.put(COLUMN_CLASS, student.className); // Insert class
 
-        db.insert(TABLE_NAME, null, values);
+        long result =db.insert(TABLE_NAME, null, values);
+        Log.d("SQLite", "Insert result: " + result);
         db.close();
     }
 
@@ -118,8 +120,7 @@ public class StudentRepo extends SQLiteOpenHelper {
             String id = cursor.getString(0);
             String name = cursor.getString(1);
             String date = cursor.getString(2);
-            String classId = cursor.getString(3);
-            students.add(new Student(name, date, classId));
+            students.add(new Student(name, date, className));
         }
 
         cursor.close();

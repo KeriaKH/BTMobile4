@@ -43,7 +43,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent1=new Intent(SecondActivity.this,ThirdActivity.class);
-                intent1.putExtra("classId", Classes.get(position).name);
+                intent1.putExtra("className", Classes.get(position).name);
                 startActivity(intent1);
             }
         });
@@ -72,6 +72,10 @@ public class SecondActivity extends AppCompatActivity {
             ClassListAdapter adapter = new ClassListAdapter(this, R.layout.item, Classes);
             listView.setAdapter(adapter);
             return true;
+        }
+        else
+        {
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }

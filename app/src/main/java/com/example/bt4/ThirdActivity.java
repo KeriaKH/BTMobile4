@@ -17,14 +17,16 @@ public class ThirdActivity extends AppCompatActivity {
     ArrayList<Student> students;
     StudentListAdapter adapter;
     StudentRepo studentRepo;
+
+    String className;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main3);
         listView=findViewById(R.id.listview);
         Intent intent = getIntent();
-        String classId = intent.getStringExtra("classId");
+        className = intent.getStringExtra("className");
         studentRepo=new StudentRepo(this);
-        students=new ArrayList<>(studentRepo.loadAllByClass(classId));
+        students=new ArrayList<>(studentRepo.loadAllByClass(className));
         adapter=new StudentListAdapter(this,R.layout.item,students);
         listView.setAdapter(adapter);
     }
@@ -38,6 +40,7 @@ public class ThirdActivity extends AppCompatActivity {
         int itemid=item.getItemId();
         if(itemid==R.id.option1){
             Intent addintent=new Intent(this,AddStudent.class);
+            addintent.putExtra("className",className);
             startActivityForResult(addintent,1);
             return true;
         } else if (itemid == R.id.option2) {

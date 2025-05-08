@@ -29,11 +29,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="date"/>
-        <EditText
-            android:id="@+id/lop"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Class"/>
         <LinearLayout
             android:layout_marginTop="32dp"
             android:layout_width="match_parent"
