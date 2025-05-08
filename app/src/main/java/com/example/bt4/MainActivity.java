@@ -17,11 +17,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
 
     EditText user,password;
     private List<User> userList;
-
     public ClassRepo classRepo;
     Button login;
     @Override
@@ -118,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
 class StudentListAdapter extends ArrayAdapter<Student> {
     int resource;
     private List<Student> students;
-
     public StudentListAdapter(Context context, int resource, List<Student> students) {
         super(context, resource, students);
         this.students=students;
@@ -139,15 +133,15 @@ class StudentListAdapter extends ArrayAdapter<Student> {
         if (student != null) {
             CheckBox checkBox = v.findViewById(R.id.checkBox);
             TextView nameTextView = v.findViewById(R.id.textView);
-            TextView passwordTextView = v.findViewById(R.id.textView2);
+            TextView dateTextView = v.findViewById(R.id.textView2);
             if (nameTextView != null) {
                 nameTextView.setText(student.name);
                 checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
                     student.isSelected = isChecked;
                 });
             }
-            if (passwordTextView != null) {
-                passwordTextView.setText(student.date);
+            if (dateTextView != null) {
+                dateTextView.setText(student.date);
             }
         }
         return v;
@@ -178,15 +172,15 @@ class ClassListAdapter extends ArrayAdapter<Class> {
         if (aClass != null) {
             CheckBox checkBox = v.findViewById(R.id.checkBox);
             TextView nameTextView = v.findViewById(R.id.textView);
-            TextView passwordTextView = v.findViewById(R.id.textView2);
+            TextView khoaTextView = v.findViewById(R.id.textView2);
             if (nameTextView != null) {
                 nameTextView.setText(aClass.name);
                 checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
                     aClass.isSelected = isChecked;
                 });
             }
-            if (passwordTextView != null) {
-                passwordTextView.setText(aClass.khoa);
+            if (khoaTextView != null) {
+                khoaTextView.setText(aClass.khoa);
             }
         }
         return v;

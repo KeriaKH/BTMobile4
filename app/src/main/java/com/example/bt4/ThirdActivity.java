@@ -37,13 +37,13 @@ public class ThirdActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int itemid=item.getItemId();
-        if(itemid==R.id.option1){
+        int itemId =item.getItemId();
+        if(itemId ==R.id.option1){
             Intent addintent=new Intent(this,AddStudent.class);
             addintent.putExtra("className",className);
             startActivityForResult(addintent,1);
             return true;
-        } else if (itemid == R.id.option2) {
+        } else if (itemId == R.id.option2) {
             List<Student> StudentsToRemove = new ArrayList<>();
             for (Student student : students) {
                 if (student.isSelected==true) {
@@ -55,7 +55,7 @@ public class ThirdActivity extends AppCompatActivity {
             StudentListAdapter adapter = new StudentListAdapter(this, R.layout.item, students);
             listView.setAdapter(adapter);
             return true;
-        } else if (itemid==R.id.option3) {
+        } else if (itemId ==R.id.option3) {
             finish();
         }
         return super.onOptionsItemSelected(item);
